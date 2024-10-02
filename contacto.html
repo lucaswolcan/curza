@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contacto</title>
+    <script>
+        function limpiarCampo() {
+            document.getElementById("telefono").value = "";
+        }
+
+        function cargarDatos() {
+            // Capturamos los valores del formulario
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var correo = document.getElementById("correo").value;
+            var telefono = document.getElementById("telefono").value;
+            var edad = document.getElementById("edad").value;
+            var direccion = document.getElementById("direccion").value;
+            var provincia = document.getElementById("provincia").value;
+            var codigopostal = document.getElementById("codigopostal").value;
+
+            // Asignamos los valores a la tabla
+            document.getElementById("valorNombre").innerText = nombre;
+            document.getElementById("valorApellido").innerText = apellido;
+            document.getElementById("valorCorreo").innerText = correo;
+            document.getElementById("valorTelefono").innerText = telefono;
+            document.getElementById("valorEdad").innerText = edad;
+            document.getElementById("valorDireccion").innerText = direccion;
+            document.getElementById("valorProvincia").innerText = provincia;
+            document.getElementById("valorCodigoPostal").innerText = codigopostal;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Lucas Matias Wolcan</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acercade.html">Acerca de Mí</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <form method="post" action="process_form.php">
+                <fieldset>
+                    <legend>Formulario de Contacto</legend>
+
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" size="20" placeholder="Ingresa tu nombre" required><br>
+
+                    <label for="apellido">Apellido:</label><br>
+                    <input type="text" id="apellido" name="apellido" size="20" placeholder="Ingresa tu apellido"><br>
+
+                    <label for="correo">Correo:</label><br>
+                    <input type="email" id="correo" name="correo" size="60" placeholder="correo@ejemplo.com"
+                        required><br>
+
+                    <label for="telefono">Teléfono:</label><br>
+                    <input type="number" id="telefono" name="telefono" size="20" placeholder="1234567890"
+                        onclick="limpiarCampo();"><br>
+
+                    <label for="edad">Edad:</label><br>
+                    <input type="number" id="edad" name="edad" min="16" max="120" placeholder="16" required><br>
+
+                    <label for="direccion">Dirección:</label><br>
+                    <input type="text" id="direccion" name="direccion" placeholder="Tu dirección"><br>
+
+                    <label for="provincia">Provincia:</label><br>
+                                        <select id="provincia">
+                                            <option value="1">BUENOS AIRES</option>
+                                            <option value="2">CATAMARCA</option>
+                                            <option value="3">CORDOBA</option>
+                                            <option value="4">CORRIENTES</option>
+                                            <option value="5">CHACO</option>
+                                            <option value="6">CHUBUT</option>
+                                            <option value="7">ENTRE RIOS</option>
+                                            <option value="8">FORMOSA</option>
+                                            <option value="9">JUJUY</option>
+                                            <option value="10">LA PAMPA</option>
+                                            <option value="11">LA RIOJA</option>
+                                            <option value="12">MENDOZA</option>
+                                            <option value="13">MISIONES</option>
+                                            <option value="14">NEUQUEN</option>
+                                            <option value="15">RIO NEGRO</option>
+                                            <option value="16">SALTA</option>
+                                            <option value="17">SAN LUIS</option>
+                                            <option value="19">SANTA CRUZ</option>
+                                            <option value="20">SANTA FE</option>
+                                            <option value="21">SANTIAGO DEL ESTERO</option>
+                                            <option value="22">TIERRA DEL FUEGO</option>
+                                            <option value="23">TUCUMAN</option>
+                                            <option value="50">CIUDAD AUTONOMA DE Bs As</option>
+                                            <option disabled="true" selected="true" value="">Seleccionar una Provincia</option>
+                                        </select><br>
+                    <label for="codigopostal">Código Postal:</label><br>
+                    <input type="text" id="codigopostal" name="codigopostal" pattern="[A-Za-z]{1}[0-9]{4}[A-Za-z]{3}"
+                        placeholder="X1234XYZ" required><br>
+                    
+                    <fieldset>
+                        <legend>Método preferido de contacto:</legend>
+                        <label><input type="radio" name="metodo" value="email" checked> Correo Electrónico</label>
+                        <label><input type="radio" name="metodo" value="postal"> Correo Postal</label>
+                        <label><input type="radio" name="metodo" value="phone"> Teléfono</label>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Tipos de suscripción:</legend>
+                        <label><input type="checkbox" name="subscripcion" value="noticias"> Noticias</label>
+                        <label><input type="checkbox" name="subscripcion" value="promociones"> Promociones</label>
+                        <label><input type="checkbox" name="subscripcion" value="alertas" checked> Alertas</label>
+                        <label><input type="checkbox" name="subscripcion" value="eventos"> Eventos</label>
+                    </fieldset>
+                    <input type="button" value="Cargar" onclick="cargarDatos()">
+                </fieldset>
+            </form>
+            <table>
+                <tr>
+                    <th>Campos</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td id="valorNombre"></td>
+                </tr>
+                <tr>
+                    <td>Apellido</td>
+                    <td id="valorApellido"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="valorCorreo"></td>
+                </tr>
+                <tr>
+                    <td>Teléfono</td>
+                    <td id="valorTelefono"></td>
+                </tr>
+                <tr>
+                    <td>Edad</td>
+                    <td id="valorEdad"></td>
+                </tr>
+                <tr>
+                    <td>Dirección</td>
+                    <td id="valorDireccion"></td>
+                </tr>
+                <tr>
+                    <td>Provincia</td>
+                    <td id="valorProvincia"></td>
+                </tr>
+                <tr>
+                    <td>Código Postal</td>
+                    <td id="valorCodigoPostal"></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© Copyright 2024 - Lucas Matias Wolcan. | Monseñor Esandi y Ayacucho. | Viedma(85009), Río Negro, Argentina.
+        </p>
+    </footer>
+</body>
+
+</html>
