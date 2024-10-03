@@ -30,6 +30,16 @@
             document.getElementById("valorProvincia").innerText = provincia;
             document.getElementById("valorCodigoPostal").innerText = codigopostal;
         }
+
+        function validarFormulario() {
+                const formulario = document.getElementById("formulario");
+
+                if (formulario.checkValidity()) {
+                    alert("Formulario válido");
+                } else {
+                    formulario.reportValidity();
+                }
+            }
     </script>
 </head>
 
@@ -46,7 +56,7 @@
     </nav>
     <main>
         <section>
-            <form method="post" action="process_form.php">
+            <form id="formulario">
                 <fieldset>
                     <legend>Formulario de Contacto</legend>
 
@@ -115,7 +125,11 @@
                         <label><input type="checkbox" name="subscripcion" value="alertas" checked> Alertas</label>
                         <label><input type="checkbox" name="subscripcion" value="eventos"> Eventos</label>
                     </fieldset>
+                    
+                    <input type="button" value="Validar Campos" onclick="validarFormulario()"><br>
                     <input type="button" value="Cargar" onclick="cargarDatos()">
+                    
+                    <p>*** hice el validar campos para simular el submit y que no se borre el formulario, de esa forma luego se puede ejecutar el cargar.</p>
                 </fieldset>
             </form>
             <table>
