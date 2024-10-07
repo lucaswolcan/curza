@@ -68,6 +68,7 @@ form legend {
 }
 
 form input[type="text"],
+form input[list],
 form input[type="email"],
 form input[type="number"],
 form select {
