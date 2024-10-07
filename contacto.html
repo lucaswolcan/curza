@@ -61,17 +61,17 @@
                     <legend>Formulario de Contacto</legend>
 
                     <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" size="20" placeholder="Ingresa tu nombre" required><br>
+                    <input type="text" id="nombre" name="nombre" maxlength="20" placeholder="Ingresa tu nombre" required><br>
 
                     <label for="apellido">Apellido:</label><br>
-                    <input type="text" id="apellido" name="apellido" size="20" placeholder="Ingresa tu apellido"><br>
+                    <input type="text" id="apellido" name="apellido" maxlength="20" placeholder="Ingresa tu apellido"><br>
 
                     <label for="correo">Correo:</label><br>
-                    <input type="email" id="correo" name="correo" size="60" placeholder="correo@ejemplo.com"
+                    <input type="email" id="correo" name="correo" maxlength="60" placeholder="correo@ejemplo.com"
                         required><br>
 
                     <label for="telefono">Teléfono:</label><br>
-                    <input type="number" id="telefono" name="telefono" size="20" placeholder="1234567890"
+                    <input type="number" id="telefono" name="telefono" maxlength="20" placeholder="1234567890"
                         onclick="limpiarCampo();"><br>
 
                     <label for="edad">Edad:</label><br>
@@ -108,7 +108,7 @@
                                             <option disabled="true" selected="true" value="">Seleccionar una Provincia</option>
                                         </select><br>
                     <label for="codigopostal">Código Postal:</label><br>
-                    <input type="text" id="codigopostal" name="codigopostal" pattern="[A-Za-z]{1}[0-9]{4}[A-Za-z]{3}"
+                    <input type="text" id="codigopostal" name="codigopostal" pattern="[A-Z]{1}[0-9]{4}[A-Z]{3}"
                         placeholder="X1234XYZ" required><br>
                     
                     <fieldset>
