@@ -37,44 +37,55 @@ h2 {
 }
 
 .subheader {
-    text-align: center;
+    text-align: right;
     font-style: italic;
     margin-bottom: 10px;
 }
 
 .citation {
-    text-align: center;
+    text-align: right;
     font-size: 12px;
     margin: 10px 0;
     text-transform: uppercase;
 }
 
-.quote,
-.main-text {
+.main-text,
+.quote {
     margin-bottom: 30px;
 }
 
-.quote p,
-.main-text p {
+.main-text p,
+.quote p {
     text-align: justify;
     font-size: 14px;
     line-height: 1.5;
+    margin-bottom: 20px;
+    text-indent: 40px;
+    /* Sangría en la primera línea del párrafo */
+}
+
+.quote {
+    font-style: italic;
+    border-left: 5px solid #ccc;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+article {
+    margin-bottom: 40px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+/* Ajustes adicionales para que las secciones y artículos luzcan bien */
+article h1 {
     margin-bottom: 10px;
 }
 
-.footnote {
-    font-size: 12px;
-    text-align: right;
-    margin-top: 20px;
+article p,
+article .quote {
+    margin-bottom: 15px;
 }
 
-i {
-    font-style: italic;
-}
-
-small {
-    display: block;
-    text-align: center;
-    font-size: 12px;
-    margin-top: 10px;
-}
