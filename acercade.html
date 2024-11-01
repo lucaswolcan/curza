@@ -11,6 +11,23 @@
 
     <link rel="stylesheet" href="style.css" />
     <title>Acerca de</title>
+    <script>
+        function leerMas() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("myBtn");
+
+                if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML = "Leer más";
+                    moreText.style.display = "none";
+                } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Leer menos";
+                    moreText.style.display = "inline";
+                }
+            }
+    </script>
 </head>
 
 <body>
@@ -43,6 +60,16 @@
             </p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat veniam quibusdam excepturi laborum quis consequuntur ut provident amet? Illum tenetur nesciunt maxime similique numquam laudantium? Voluptate officia quasi vero dignissimos.</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, temporibus voluptatum? Quos voluptas esse similique fuga, facere maxime eum sequi repudiandae eos velit sapiente dignissimos perspiciatis debitis aliquid nihil cum. Dolorem architecto magni, inventore obcaecati incidunt ipsum saepe dolorum fuga impedit eius possimus odit. Laborum, ab unde corrupti velit magnam facere asperiores maxime architecto voluptatum ratione quam. Impedit, dolorem perspiciatis. Id ut in voluptatem fugit accusamus, cumque perferendis at quod provident architecto eius eaque officiis reiciendis consectetur qui, non omnis dolore? Saepe possimus reiciendis dolorum, aut, enim culpa est optio, corporis magnam perspiciatis fugiat aliquam recusandae similique quam a labore consequatur mollitia quod vel suscipit! Unde tempora distinctio, soluta aut possimus, dolores nemo laudantium facilis iste iure nostrum praesentium sapiente nesciunt! Harum corporis odio in adipisci quae iste enim deserunt, voluptatum eligendi odit voluptate alias nam, rem quia. Numquam cum voluptate itaque ab fugit, doloribus blanditiis enim at vero. Repudiandae officia hic a nesciunt, ipsa eaque accusamus doloremque, reprehenderit sed reiciendis aliquam qui corrupti explicabo ab unde dolor quasi quisquam nam ad aperiam repellat animi iusto! Quis numquam molestiae minima libero laudantium dolor laboriosam sint magnam odio voluptatem! In error inventore quae consequuntur at ratione neque hic placeat similique vel.</p>
+        </article>
+        <article>
+            <h2>Extra para porbar leer mas</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem
+                egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est,
+                    ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum
+                    nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
+                    vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh
+                    tempor porta.</span></p>
+                    <button onclick="leerMas()" id="myBtn">Leer mas</button>
         </article>
        </section>
     </main>
