@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--font externa-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Lucas Matias Wolcan</title>
+</head>
+<body class="container">
+    <header class="fixed-header">
+        <h1>Lucas Matias Wolcan</h1>
+        <img src="img/logo_blanco.png" alt="Logo" class="logo">
+    </header>
+    <nav class="fixed-nav">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acercade.html">Acerca de Mi</a></li>
+            <li><a href="juego.html">Juego</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Juego de Memoria</h1>
+    <p>Haz clic en dos cartas para emparejarlas. ¡Encuentra todos los pares!</p>
+
+    <div class="container2">
+        <!-- Juego -->
+        <div class="game-section">
+            <div class="game-container" id="game-container"></div>            
+        </div>
+
+        <!-- Tabla de Resultados -->
+        <div class="results-container">
+            <button id="reset-button">Reiniciar</button>
+            <button id="pause-button">Pausar</button>
+            <div class="score-container" id="score-container">Tiempo: 0 segundos</div>
+            <h2>Resultados</h2>
+            <table class="results-table" id="results-table">
+                <thead>
+                    <tr>
+                        <th>Partida</th>
+                        <th>Tiempo (s)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const gameContainer = document.getElementById('game-container');
+        const resetButton = document.getElementById('reset-button');
+        const pauseButton = document.getElementById('pause-button');
+        const scoreContainer = document.getElementById('score-container');
+        const resultsTable = document.getElementById('results-table').querySelector('tbody');
+        const icons = ["🍎", "🍌", "🍇", "🍉", "🍒", "🍍", "🥥", "🍓"];
+        let cardIcons = [...icons, ...icons];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let startTime;
+        let timerInterval;
+        let gameCount = 1;
+        let isPaused = false;
+        let elapsedSeconds = 0;
+
+        function shuffle(array) {
+            array.sort(() => Math.random() - 0.5);
+        }
+
+        function createCard(icon) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.dataset.icon = icon;
+            card.innerText = "❓";
+            card.addEventListener('click', flipCard);
+            return card;
+        }
+
+        function startGame() {
+            gameContainer.innerHTML = "";
+            matchedPairs = 0;
+            flippedCards = [];
+            shuffle(cardIcons);
+            elapsedSeconds = 0;
+            isPaused = false;
+            pauseButton.innerText = 'Pausar';
+
+            clearInterval(timerInterval);
+            startTime = Date.now();
+            timerInterval = setInterval(updateTime, 1000);
+
+            cardIcons.forEach(icon => {
+                const card = createCard(icon);
+                gameContainer.appendChild(card);
+            });
+        }
+
+        function updateTime() {
+            if (!isPaused) {
+                elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+                scoreContainer.innerText = `Tiempo: ${elapsedSeconds} segundos`;
+            }
+        }
+
+        function flipCard() {
+            if (flippedCards.length === 2 || this.classList.contains('flip') || this.classList.contains('matched') || isPaused) return;
+
+            this.classList.add('flip');
+            this.innerText = this.dataset.icon;
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                setTimeout(checkForMatch, 800);
+            }
+        }
+
+        function checkForMatch() {
+            const [card1, card2] = flippedCards;
+
+            if (card1.dataset.icon === card2.dataset.icon) {
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                matchedPairs++;
+
+                if (matchedPairs === icons.length) {
+                    clearInterval(timerInterval);
+                    const finalTime = elapsedSeconds;
+                    addResult(finalTime);
+                    setTimeout(() => alert(`¡Ganaste! Tiempo total: ${finalTime} segundos.`), 300);
+                }
+            } else {
+                card1.classList.remove('flip');
+                card2.classList.remove('flip');
+                card1.innerText = "❓";
+                card2.innerText = "❓";
+            }
+
+            flippedCards = [];
+        }
+
+        function addResult(time) {
+            const newRow = document.createElement('tr');
+            const gameCell = document.createElement('td');
+            const timeCell = document.createElement('td');
+
+            gameCell.innerText = `Partida ${gameCount}`;
+            timeCell.innerText = `${time} s`;
+
+            newRow.appendChild(gameCell);
+            newRow.appendChild(timeCell);
+            resultsTable.appendChild(newRow);
+
+            gameCount++;
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            pauseButton.innerText = isPaused ? 'Reanudar' : 'Pausar';
+            if (!isPaused) {
+                startTime = Date.now() - elapsedSeconds * 1000;
+            }
+        }
+
+        resetButton.addEventListener('click', startGame);
+        pauseButton.addEventListener('click', togglePause);
+
+        startGame();
+    </script>
+</body>
+
+</html>
