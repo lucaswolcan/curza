@@ -4,28 +4,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <!--font externa-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css" />
     <title>Acerca de</title>
 </head>
 
 <body>
-    <header>
-        <h1>Lucas Matias Wolcan</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="acercade.html">Acerca de Mi</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
+<header class="fixed-header">
+    <h1>Lucas Matias Wolcan</h1>
+    <img src="img/logo_blanco.png" alt="Logo" class="logo">
+</header>
+<nav class="fixed-nav">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="acercade.html">Acerca de Mi</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</nav>
     <main>
-       <img src="img/lucas.jpg" width="120px" height="120px">
+       <img class="persona-photo" src="img/lucas.jpg" width="120px" height="120px">
        <section> 
-        <article>
-
+        <article class="high-fixed">
             <h2>Sobre mi</h2>            
-            <p>
+            <p class="text-sticky">
                 Soy desarrollador en el área de informática de la Legislatura de Río Negro, donde trabajo con tecnologías como Oracle
                 Forms, Oracle APEX y PL/SQL. Mi rol implica diseñar y mantener aplicaciones que optimizan los procesos legislativos,
                 contribuyendo al buen funcionamiento del sistema administrativo y de gestión.
@@ -36,9 +41,12 @@
                 al aire libre. Disfruto mucho estar en contacto con la naturaleza, y acampar me brinda una oportunidad perfecta para
                 desconectarme, explorar nuevos paisajes y, por supuesto, tomar fotografías que cuenten historias visuales.
             </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat veniam quibusdam excepturi laborum quis consequuntur ut provident amet? Illum tenetur nesciunt maxime similique numquam laudantium? Voluptate officia quasi vero dignissimos.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, temporibus voluptatum? Quos voluptas esse similique fuga, facere maxime eum sequi repudiandae eos velit sapiente dignissimos perspiciatis debitis aliquid nihil cum. Dolorem architecto magni, inventore obcaecati incidunt ipsum saepe dolorum fuga impedit eius possimus odit. Laborum, ab unde corrupti velit magnam facere asperiores maxime architecto voluptatum ratione quam. Impedit, dolorem perspiciatis. Id ut in voluptatem fugit accusamus, cumque perferendis at quod provident architecto eius eaque officiis reiciendis consectetur qui, non omnis dolore? Saepe possimus reiciendis dolorum, aut, enim culpa est optio, corporis magnam perspiciatis fugiat aliquam recusandae similique quam a labore consequatur mollitia quod vel suscipit! Unde tempora distinctio, soluta aut possimus, dolores nemo laudantium facilis iste iure nostrum praesentium sapiente nesciunt! Harum corporis odio in adipisci quae iste enim deserunt, voluptatum eligendi odit voluptate alias nam, rem quia. Numquam cum voluptate itaque ab fugit, doloribus blanditiis enim at vero. Repudiandae officia hic a nesciunt, ipsa eaque accusamus doloremque, reprehenderit sed reiciendis aliquam qui corrupti explicabo ab unde dolor quasi quisquam nam ad aperiam repellat animi iusto! Quis numquam molestiae minima libero laudantium dolor laboriosam sint magnam odio voluptatem! In error inventore quae consequuntur at ratione neque hic placeat similique vel.</p>
         </article>
        </section>
     </main>
+    <a href="#top" class="back-to-top">&#8679;</a>
     <footer>
         <p>© Copyright 2024 - Lucas Matias Wolcan. | Monseñor Esandi y Ayacucho. | Viedma(85009), Río Negro, Argentina.</p>
     </footer>
